@@ -4,32 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
-    <title>Document</title>
+    <title>StarinLin</title>
 </head>
 <style>
+    @font-face {
+        font-family: HaloHandletter;
+        src: url(fonts/HaloHandletter.otf);
+    }
     body{margin: 0;padding: 0;height: 100%;}
-    html{height: 100%;}
+    html{height: 100%;font-size: 16px;scroll-behavior: smooth}
     #nav{width: 100%;background-color: white;box-shadow: 0;box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);}
-    #nav ul{list-style: none;height: 60px;line-height: 60px;margin: auto;padding: 0px;;display: flex;justify-content: space-between;max-width: 968px;}
+    #nav ul{list-style: none;height: 60px;line-height: 60px;margin: auto;padding: 0px;;display: flex;justify-content: space-around;max-width: 968px;}
     #nav li{text-align: center;color: rgba(0, 0, 0, 0.8);}
     #nav li:hover{color: black;}
-    #content{max-width: 968px;margin: auto;margin-top: 60px;}
-    #content1{display: flex;}
-    #content1_left,#content1_right{height: 300px;width: 50%;}
-    /* #content1_left{} */
-    #content1_right{overflow: hidden;}
-    #content1_right img{width: 60%;margin: auto;}
-    .hi{font-size: 60px;font-weight: bold;line-height: 9px;}
     #menu_button_ul a{color: rgba(0, 0, 0, 0.8);text-decoration: none;}
     #menu_button{display: none;justify-content: space-around;height: 60px;align-items: center;}
     #menu_button_area{width: 90%;}
-    @media screen and (max-width: 391px) {
-        
+    #content{max-width: 968px;margin: auto;}
+    #content1{display: flex;width: 80%;margin: auto;padding-top: 10vh;}
+    #content1_left,#content1_right{width: 50%;}
+    /* #content1_left{padding-left: 3rem;} */
+    #content1_right{overflow: hidden;}
+    #content1_right img{width: 60%;display: block;margin: auto;min-width: 250px;}
+    .hi{font-size: 3rem;font-weight: bold;line-height: 1rem;}
+    .text{font-size: 1.125rem;color: rgb(109, 106, 124);}
+    #learn_more a{color: black;text-decoration: none;color:rgb(0, 112, 201)}
+    #learn_more{display: inline-block;transition: 0.8s;}
+    #learn_more:hover{transform: translateY(6px);transition: 0.8s;}
+    #content2{width: 80%;margin: auto;}
+    #content3{width: 80%;margin: auto;text-align: center;font-size: 3rem;font-weight: bold;height: 40vh;line-height: 40vh;font-family: HaloHandletter;}
+    @media screen and (max-width: 640px) {
         #nav ul{flex-direction: column;height: 0;transition: 1s;overflow: hidden;}
         #menu_button{display: flex;}
         #content1{flex-direction: column-reverse;}
-        #content1_left,#content1_right{height: 300px;width: 100%;}
+        #content1_left,#content1_right{width: 100%;}
+        #content1_left{text-align: center;padding: 0;}
+        #content1_right img{min-width: none;}
+        #content3{font-size: 1.25rem;}
     }
+    #footer{height: 60px;width: 100%;text-align: center;box-shadow: -2px -2px 5px rgba(0, 0, 0, 0.3);line-height: 60px;margin-top: 60px;font-size: 0.8rem;}
 </style>
 <body>
     <div id="nav">
@@ -37,7 +50,7 @@
             <div id="menu_button_area" onclick="menu_option_click()"><i class="fa fa-reorder" style="cursor: pointer;"></i></div>
         </div>
         <ul id="menu_button_ul">    
-            <a href="#1"><li class="menu_option">首页</li></a>
+            <a href="index.html"><li class="menu_option">首页</li></a>
             <a href="#2"><li class="menu_option">笔记</li></a>
             <a href="#3"><li class="menu_option">文章</li></a>
             <a href="#"><li class="menu_option">关于</li></a>
@@ -48,10 +61,27 @@
             <div id="content1_left">
                 <p class="hi">Hi, I'm</p>
                 <p class="hi">StarinLin</p>
+                <p class="text"><b>Welcome to my page</b></p>
+                <p class="text">这只是一个学习性质的网页</p>
+                <p id="learn_more"><a href="#maincontent">了解更多</a></p>
             </div>
-            <div id="content1_right"></div>
+            <div id="content1_right"><img src="images/avatar.png"></div>
+        </div>
+        <div id="content3">
+            <p>Stay Hungry, Stay Foolish.</p>
+        </div>
+        <div id="content2">
+            <a name="maincontent"></a>
+            <p class="text"style="text-indent:2em;">
+                写这个网页只是用作学习用途，会把一些新学到的东西在这里记录，目前网站功能还不完善，不过在可预见
+                的将来，会逐步完善，因为我不喜欢套用模板，
+                像什么hexo,hugo这些博客框架确实写得非常完善，使用非常方便，但我还是喜欢从零开始造轮子，慢慢一点点
+                完善，尽管水平十分有限，很多代码写得杂乱无章，很多功能也无法实现，但这正是一个学习的过程。
+                暂时就这样了，等以后学习了框架，应该会把网页用Vue或者React重构一下
+            </p>
         </div>
     </div>
+    <div id="footer">Copyright © 2023 StarinLin</div>
     <script>
         let status=0;
         let menu_option=document.getElementsByClassName("menu_option");
@@ -69,7 +99,7 @@
         }
         function widthchange(){
             let width1=window.innerWidth;
-            if(width1>=400){
+            if(width1>=640){
                 menu_button_ul.style.height="60px";
             }
             else{
