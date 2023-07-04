@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+    <title>Document</title>
+</head>
+<style>
+    body{margin: 0;padding: 0;height: 100%;}
+    html{height: 100%;}
+    #nav{width: 100%;background-color: white;box-shadow: 0;box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);}
+    #nav ul{list-style: none;height: 60px;line-height: 60px;margin: auto;padding: 0px;;display: flex;justify-content: space-between;max-width: 968px;}
+    #nav li{text-align: center;color: rgba(0, 0, 0, 0.8);}
+    #nav li:hover{color: black;}
+    #content{max-width: 968px;margin: auto;margin-top: 60px;}
+    #content1{display: flex;}
+    #content1_left,#content1_right{height: 300px;width: 50%;}
+    /* #content1_left{} */
+    #content1_right{overflow: hidden;}
+    #content1_right img{width: 60%;margin: auto;}
+    .hi{font-size: 60px;font-weight: bold;line-height: 9px;}
+    #menu_button_ul a{color: rgba(0, 0, 0, 0.8);text-decoration: none;}
+    #menu_button{display: none;justify-content: space-around;height: 60px;align-items: center;}
+    #menu_button_area{width: 90%;}
+    @media screen and (max-width: 391px) {
+        
+        #nav ul{flex-direction: column;height: 0;transition: 1s;overflow: hidden;}
+        #menu_button{display: flex;}
+        #content1{flex-direction: column-reverse;}
+        #content1_left,#content1_right{height: 300px;width: 100%;}
+    }
+</style>
+<body>
+    <div id="nav">
+        <div id="menu_button">
+            <div id="menu_button_area" onclick="menu_option_click()"><i class="fa fa-reorder" style="cursor: pointer;"></i></div>
+        </div>
+        <ul id="menu_button_ul">    
+            <a href="#1"><li class="menu_option">首页</li></a>
+            <a href="#2"><li class="menu_option">笔记</li></a>
+            <a href="#3"><li class="menu_option">文章</li></a>
+            <a href="#"><li class="menu_option">关于</li></a>
+        </ul>
+    </div>
+    <div id="content">
+        <div id="content1">
+            <div id="content1_left">
+                <p class="hi">Hi, I'm</p>
+                <p class="hi">StarinLin</p>
+            </div>
+            <div id="content1_right"></div>
+        </div>
+    </div>
+    <script>
+        let status=0;
+        let menu_option=document.getElementsByClassName("menu_option");
+        let menu_button_ul=document.getElementById("menu_button_ul");
+        let nav=document.getElementById("nav");
+        function menu_option_click(){
+            if(status==0){
+                menu_button_ul.style.height="240px";
+                status=1;
+            }
+            else{
+                menu_button_ul.style.height="0";
+                status=0;
+            }    
+        }
+        function widthchange(){
+            let width1=window.innerWidth;
+            if(width1>=400){
+                menu_button_ul.style.height="60px";
+            }
+            else{
+                menu_button_ul.style.height="0px";
+            }
+        }  
+	
+        window.addEventListener('resize', widthchange);
+    </script>
+</body>
+</html>
