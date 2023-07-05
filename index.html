@@ -11,9 +11,10 @@
         font-family: HaloHandletter;
         src: url(fonts/HaloHandletter.otf);
     }
+    /* *{cursor: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8' width='8px' height='8px'><circle cx='4' cy='4' r='4' fill='white' opacity='.5'/></svg>") 4 4, auto} */
     body{margin: 0;padding: 0;height: 100%;}
     html{height: 100%;font-size: 16px;scroll-behavior: smooth}
-    #nav{width: 100%;background-color: white;box-shadow: 0;box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);}
+    #nav{width: 100%;background-color: white;box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);}
     #nav ul{list-style: none;height: 60px;line-height: 60px;margin: auto;padding: 0px;;display: flex;justify-content: space-around;max-width: 968px;}
     #nav li{text-align: center;color: rgba(0, 0, 0, 0.8);}
     #nav li:hover{color: black;}
@@ -25,14 +26,17 @@
     #content1_left,#content1_right{width: 50%;}
     /* #content1_left{padding-left: 3rem;} */
     #content1_right{overflow: hidden;}
-    #content1_right img{width: 60%;display: block;margin: auto;min-width: 250px;}
+    #content1_right img{width: 60%;display: block;margin: auto;min-width: 250px;box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);}
     .hi{font-size: 3rem;font-weight: bold;line-height: 1rem;}
     .text{font-size: 1.125rem;color: rgb(109, 106, 124);}
+    .text_title{font-size: 2rem;color: black;text-align: center;font-weight: bold;margin-top: 60px;line-height: 0px;}
+    .text_annotation{font-size: 1rem;color: rgb(109, 106, 124);text-align: center;}
     #learn_more a{color: black;text-decoration: none;color:rgb(0, 112, 201)}
     #learn_more{display: inline-block;transition: 0.8s;}
     #learn_more:hover{transform: translateY(6px);transition: 0.8s;}
     #content2{width: 80%;margin: auto;}
-    #content3{width: 80%;margin: auto;text-align: center;font-size: 3rem;font-weight: bold;height: 40vh;line-height: 40vh;font-family: HaloHandletter;}
+    #content3{width: 80%;margin: auto;text-align: center;font-size: 3rem;font-weight: bold;height: 40vh;line-height: 40vh;font-family: HaloHandletter;user-select: none;}
+    #to_do_ul{list-style: none;}
     @media screen and (max-width: 640px) {
         #nav ul{flex-direction: column;height: 0;transition: 1s;overflow: hidden;}
         #menu_button{display: flex;}
@@ -42,7 +46,7 @@
         #content1_right img{min-width: none;}
         #content3{font-size: 1.25rem;}
     }
-    #footer{height: 60px;width: 100%;text-align: center;box-shadow: -2px -2px 5px rgba(0, 0, 0, 0.3);line-height: 60px;margin-top: 60px;font-size: 0.8rem;}
+    #footer{height: 60px;width: 100%;text-align: center;box-shadow: -2px -2px 5px rgba(0, 0, 0, 0.3);line-height: 60px;font-size: 0.8rem;margin-top: 60px;}
 </style>
 <body>
     <div id="nav">
@@ -65,7 +69,7 @@
                 <p class="text">这只是一个学习性质的网页</p>
                 <p id="learn_more"><a href="#maincontent">了解更多</a></p>
             </div>
-            <div id="content1_right"><img src="images/avatar.png"></div>
+            <div id="content1_right"><img src="images/avatar.jpg"></div>
         </div>
         <div id="content3">
             <p>Stay Hungry, Stay Foolish.</p>
@@ -79,6 +83,20 @@
                 完善，尽管水平十分有限，很多代码写得杂乱无章，很多功能也无法实现，但这正是一个学习的过程。
                 暂时就这样了，等以后学习了框架，应该会把网页用Vue或者React重构一下
             </p>
+            <p class="text_title">待办清单</p>
+            <p class="text_annotation">正在尝试实现的功能</p>
+            <ul id="to_do_ul">
+                <li><input type="checkbox" disabled>组件复用(涉及到网页整体架构问题，在学习完框架前，会暂停其他所以功能的继续)</li>
+                <li><input type="checkbox" class="to_do" disabled>网页显示md文件</li>
+                <li><input type="checkbox" disabled>页数导航</li>
+                <li><input type="checkbox" disabled>文章标签分类</li>
+                <li><input type="checkbox" disabled>页数导航</li>
+                <li><input type="checkbox" disabled>静态网页的搜索功能</li>
+                <li><input type="checkbox" disabled>...</li>
+            </ul>
+            <p class="text_title">标题占位</p>
+            <p class="text_annotation">标题注释</p>
+            <div style="width: 100%;height: 100px;background-color: lightgray;"></div> 
         </div>
     </div>
     <div id="footer">Copyright © 2023 StarinLin</div>
